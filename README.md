@@ -58,7 +58,7 @@ output2 = 3
 ```
 ## Assembly code conversion 
 
-Compile the c program usingRISCV-V GNU Toolchain and dump the assembly code into sample+assembly.txt using the above commands
+Compile the c program usingRISCV-V GNU Toolchain and dump the assembly code into sample_assembly.txt using the above commands
 
 ### Contents of assemlby.txt
 ```
