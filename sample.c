@@ -13,8 +13,8 @@ void read()
     int output2; 
     newlogic(input1,input2,input3,&output1,&output2); 
 
-    // printf("output1 = %d", output1); 
-    // printf("output2 = %d", output2); 
+    printf("output1 = %d", output1); 
+    printf("output2 = %d", output2); 
 }
 
 int main()
