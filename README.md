@@ -14,9 +14,15 @@ Refer [RISCV-GNU-Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
 
 
 ## Assembly Code Generation
-Run the below command to generate an assembly instructions file for the function created in the sample.c.
+### Note : Comment print statements while running the below commands
+Run the below command to compile using RISC-V GNU Toolchain
 ```
-riscv32-unknown-elf-objdump -d sample.c --disassemble=<function_name>  > filename.txt
+riscv32-unknown-elf-gcc -c -mabi=ilp32 -march=rv32im -ffreestanding -o ./sample sample.c
+```
+
+Run the below command to generate assembly instructions file for the function created in the sample.c .
+```
+riscv32-unknown-elf-objdump -d sample.c --disassemble=newlogic  > sample_assembly.txt
 ```
 
 ## Assembly Instruction Counter
@@ -43,13 +49,61 @@ The script will process the assembly code file and display the number of differe
 
 Feel free to modify the script to suit your specific requirements or contribute to its development.
 
-### Example
-Suppose your assembly code contains instructions like addi, lw, sw, and so on. 
-Running the script on this code would yield:
+## Example
+## Sample code gcc output
+
 ```
-Number of different instructions: 3
+output1 = 3
+output2 = 3
+```
+## Assembly code conversion 
+
+Compile the c program usingRISCV-V GNU Toolchain and dump the assembly code into sample+assembly.txt using the above commands
+
+### Contents of assemlby.txt
+```
+
+sample:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <newlogic>:
+   0:	fd010113          	addi	sp,sp,-48
+   4:	02812623          	sw	s0,44(sp)
+   8:	03010413          	addi	s0,sp,48
+   c:	fea42623          	sw	a0,-20(s0)
+  10:	feb42423          	sw	a1,-24(s0)
+  14:	fec42223          	sw	a2,-28(s0)
+  18:	fed42023          	sw	a3,-32(s0)
+  1c:	fce42e23          	sw	a4,-36(s0)
+  20:	fec42703          	lw	a4,-20(s0)
+  24:	fe842783          	lw	a5,-24(s0)
+  28:	00f77733          	and	a4,a4,a5
+  2c:	fe442783          	lw	a5,-28(s0)
+  30:	00f76733          	or	a4,a4,a5
+  34:	fe042783          	lw	a5,-32(s0)
+  38:	00e7a023          	sw	a4,0(a5)
+  3c:	fec42703          	lw	a4,-20(s0)
+  40:	fe842783          	lw	a5,-24(s0)
+  44:	00f76733          	or	a4,a4,a5
+  48:	fdc42783          	lw	a5,-36(s0)
+  4c:	00e7a023          	sw	a4,0(a5)
+  50:	00000013          	nop
+  54:	02c12403          	lw	s0,44(sp)
+  58:	03010113          	addi	sp,sp,48
+  5c:	00008067          	ret
+```
+Suppose your assembly code contains instructions like addi, lw, sw, and so on. 
+Running the instruction_counter.py on this sample_assembly.txt would yield:
+```
+Number of different instructions: 7
 List of unique instructions:
-addi
+ret
 lw
+and
+addi
+nop
 sw
+or
 ```
