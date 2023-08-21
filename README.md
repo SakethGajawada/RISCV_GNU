@@ -2,7 +2,7 @@
 ## Testing
 * Open a terminal window.
 * Navigate to the directory containing the sample.c file.
-* Design a function that executes the intended logic you require
+* Design a function that executes the intended logic you require.
 * Compile the code using the GCC compiler and verify the output:
 ```
 gcc sample.c
@@ -10,7 +10,7 @@ gcc sample.c
 ```
 ## RISCV GNU Toolchain Installation
 
-Refer [RISCV-GNU-Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
+Refer [RISCV-GNU-Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain).
 
 
 ## Assembly Code Generation
