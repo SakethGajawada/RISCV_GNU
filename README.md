@@ -16,7 +16,7 @@ Refer [RISCV-GNU-Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
 ## Assembly Code Generation
 Run the below command to generate an assembly instructions file for the function created in the sample.c.
 ```
-riscv32-unknown-elf-objdump -d <sample.c> --disassemble=<function_name>  > filename.txt
+riscv32-unknown-elf-objdump -d sample.c --disassemble=<function_name>  > filename.txt
 ```
 
 ## Assembly Instruction Counter
