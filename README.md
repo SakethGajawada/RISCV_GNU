@@ -49,7 +49,7 @@ The script will process the assembly code file and display the number of differe
 
 Feel free to modify the script to suit your specific requirements or contribute to its development.
 
-## Example
+## Example - 1
 ## Sample code gcc output
 
 ```
@@ -58,7 +58,7 @@ output2 = 3
 ```
 ## Assembly code conversion 
 
-Compile the c program usingRISCV-V GNU Toolchain and dump the assembly code into sample_assembly.txt using the above commands
+Compile the c program using RISCV-V GNU Toolchain and dump the assembly code into sample_assembly.txt using the above commands
 
 ### Contents of assemlby.txt
 ```
@@ -106,4 +106,111 @@ addi
 nop
 sw
 or
+```
+
+
+## Example - 2 Linefollower
+## Assembly code conversion 
+Compile the c program using RISCV-V GNU Toolchain and dump the assembly code into sample_assembly.txt using the above commands.
+## Note 
+In the above c program, digital read and digital write functions are commented to show how the inputs and outputs are given. For now, we need only the logic which controls the linefollower robot.
+### Contents of assemlby.txt
+```
+
+line_follower:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <line_follower>:
+   0:	fd010113          	addi	sp,sp,-48
+   4:	02812623          	sw	s0,44(sp)
+   8:	03010413          	addi	s0,sp,48
+   c:	fea42623          	sw	a0,-20(s0)
+  10:	feb42423          	sw	a1,-24(s0)
+  14:	fec42223          	sw	a2,-28(s0)
+  18:	fed42023          	sw	a3,-32(s0)
+  1c:	fce42e23          	sw	a4,-36(s0)
+  20:	fcf42c23          	sw	a5,-40(s0)
+  24:	fec42783          	lw	a5,-20(s0)
+  28:	02079c63          	bnez	a5,60 <.L2>
+  2c:	fe842783          	lw	a5,-24(s0)
+  30:	02079863          	bnez	a5,60 <.L2>
+  34:	fe442783          	lw	a5,-28(s0)
+  38:	00100713          	li	a4,1
+  3c:	00e7a023          	sw	a4,0(a5)
+  40:	fe042783          	lw	a5,-32(s0)
+  44:	0007a023          	sw	zero,0(a5)
+  48:	fdc42783          	lw	a5,-36(s0)
+  4c:	00100713          	li	a4,1
+  50:	00e7a023          	sw	a4,0(a5)
+  54:	fd842783          	lw	a5,-40(s0)
+  58:	0007a023          	sw	zero,0(a5)
+  5c:	0a00006f          	j	fc <.L3>
+
+00000060 <.L2>:
+  60:	fec42783          	lw	a5,-20(s0)
+  64:	02079c63          	bnez	a5,9c <.L4>
+  68:	fe842783          	lw	a5,-24(s0)
+  6c:	02078863          	beqz	a5,9c <.L4>
+  70:	fe442783          	lw	a5,-28(s0)
+  74:	00100713          	li	a4,1
+  78:	00e7a023          	sw	a4,0(a5)
+  7c:	fe042783          	lw	a5,-32(s0)
+  80:	0007a023          	sw	zero,0(a5)
+  84:	fdc42783          	lw	a5,-36(s0)
+  88:	0007a023          	sw	zero,0(a5)
+  8c:	fd842783          	lw	a5,-40(s0)
+  90:	00100713          	li	a4,1
+  94:	00e7a023          	sw	a4,0(a5)
+  98:	0640006f          	j	fc <.L3>
+
+0000009c <.L4>:
+  9c:	fe842783          	lw	a5,-24(s0)
+  a0:	02079c63          	bnez	a5,d8 <.L5>
+  a4:	fec42783          	lw	a5,-20(s0)
+  a8:	02078863          	beqz	a5,d8 <.L5>
+  ac:	fe442783          	lw	a5,-28(s0)
+  b0:	0007a023          	sw	zero,0(a5)
+  b4:	fe042783          	lw	a5,-32(s0)
+  b8:	00100713          	li	a4,1
+  bc:	00e7a023          	sw	a4,0(a5)
+  c0:	fdc42783          	lw	a5,-36(s0)
+  c4:	00100713          	li	a4,1
+  c8:	00e7a023          	sw	a4,0(a5)
+  cc:	fd842783          	lw	a5,-40(s0)
+  d0:	0007a023          	sw	zero,0(a5)
+  d4:	0280006f          	j	fc <.L3>
+
+000000d8 <.L5>:
+  d8:	fe442783          	lw	a5,-28(s0)
+  dc:	0007a023          	sw	zero,0(a5)
+  e0:	fe042783          	lw	a5,-32(s0)
+  e4:	0007a023          	sw	zero,0(a5)
+  e8:	fdc42783          	lw	a5,-36(s0)
+  ec:	0007a023          	sw	zero,0(a5)
+  f0:	fd842783          	lw	a5,-40(s0)
+  f4:	0007a023          	sw	zero,0(a5)
+  f8:	00000013          	nop
+
+000000fc <.L3>:
+  fc:	00000013          	nop
+ 100:	02c12403          	lw	s0,44(sp)
+ 104:	03010113          	addi	sp,sp,48
+ 108:	00008067          	ret
+```
+Suppose your assembly code contains instructions like addi, lw, sw, and so on. 
+Running the instruction_counter.py on this sample_assembly.txt would yield:
+```
+Number of different instructions: 9
+List of unique instructions:
+li
+sw
+addi
+beqz
+lw
+bnez
+nop
+ret
+j
 ```
