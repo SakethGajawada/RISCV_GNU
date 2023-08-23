@@ -115,11 +115,11 @@ or
 https://github.com/SakethGajawada/RISCV_GNU/assets/77500278/96e2a529-00f5-453e-82ce-b59a312b8721
 
 ## Linefollower
-<img src="https://github.com/SakethGajawada/RISCV_GNU/blob/main/Images/line_follower_image.jpg" alt="Line follower" style="max-width: 50%;" />
+<img src="https://github.com/SakethGajawada/RISCV_GNU/blob/main/Images/line_follower_image.jpg" alt="Line follower" style="max-width: 30%;" />
 
 
 ## Block Diagram 
-<img src="https://github.com/SakethGajawada/RISCV_GNU/blob/main/Images/Flowchart.png" alt="Flowchart" style="max-width: 50%;" />
+<img src="https://github.com/SakethGajawada/RISCV_GNU/blob/main/Images/Flowchart.png" alt="Flowchart" style="max-width: 30%;" />
 
 
 ## C Code
