@@ -48,6 +48,12 @@ The script will process the assembly code file and display the number of differe
 * The output provides the count and a list of unique instructions used in the assembly code.
 
 Feel free to modify the script to suit your specific requirements or contribute to its development.
+# CustomCore Tool
+
+
+https://github.com/SakethGajawada/RISCV_GNU/assets/77500278/b7fba62f-f9fc-4ebd-8447-a8cbbba7ca44
+
+
 
 ## Example - 1
 ## Sample code gcc output
